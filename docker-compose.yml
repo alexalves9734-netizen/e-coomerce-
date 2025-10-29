@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/ecommerce
+      - CLOUDINARYNAME=${CLOUDINARYNAME}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
+      - JWT_SECRET=${JWT_SECRET}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    depends_on:
+      - mongo
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - VITE_BACKEND_URL=/api
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  admin:
+    build:
+      context: ./admin
+      args:
+        - VITE_BACKEND_URL=/api
+    depends_on:
+      - backend
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
