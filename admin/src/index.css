@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: Outfit;
+}
+
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+select,
+input,
+textarea {
+  border: 1px solid #d1d5db; /* gray-300 */
+  outline-color: #ea580c; /* orange-600 accent como no Frontend */
+  border-radius: 4px;
+}
+
+/* Estado ativo inspirado na paleta do Frontend (laranja + cinza) */
+.active {
+  background-color: #fff7ed; /* orange-50 */
+  border-color: #fdba74; /* orange-300 */
+  color: #9a3412; /* orange-800 */
+}

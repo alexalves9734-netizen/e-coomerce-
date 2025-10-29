@@ -1,0 +1,27 @@
+[
+  {
+    "_id": "fb_1761585329869_jf4erz",
+    "name": "Teste PR Pinhais - Promo",
+    "states": [
+      "PR"
+    ],
+    "cities": [
+      {
+        "name": "Pinhais",
+        "state": "PR",
+        "customPrice": 5
+      }
+    ],
+    "basePrice": 9.9,
+    "pricePerKg": 1.5,
+    "freeShippingThreshold": 199,
+    "deliveryTime": {
+      "min": 2,
+      "max": 4
+    },
+    "isFreeShipping": false,
+    "active": true,
+    "createdAt": "2025-10-27T17:15:29.869Z",
+    "updatedAt": "2025-10-27T17:15:29.869Z"
+  }
+]

@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap");
+
+/* ===== Fontes locais (assets/font-usar) ===== */
+/* Hello Paris Sans – variações disponíveis */
+@font-face {
+  font-family: "Hello Paris Sans";
+  src: url("./assets/font-usar/Hello Paris Sans Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hello Paris Sans";
+  src: url("./assets/font-usar/Hello Paris Sans Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hello Paris Sans";
+  src: url("./assets/font-usar/Hello Paris Sans Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hello Paris Sans";
+  src: url("./assets/font-usar/Hello Paris Sans Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hello Paris Sans";
+  src: url("./assets/font-usar/Hello Paris Sans ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* La Luxes (otf local) */
+@font-face {
+  font-family: "La Luxes";
+  src: url("./assets/font-usar/la-lux/LaLuxes.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a.active hr {
+  display: block;
+}
+
+* {
+  font-family: Outfit;
+}
+
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Logo da Home: estilos específicos */
+.logo-if {
+  /* Preferir fonte local Hello Paris Sans se disponível */
+  font-family: "Hello Paris Sans", "Prata", serif;
+  position: relative;
+}
+
+.logo-parfum {
+  font-family: "La Luxes", "Prata", serif;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.brand-logo {
+  line-height: 1;
+}
+
+/* Swoosh sob o "IF" para aproximar do visual da marca */
+/* Removido: agora o swoosh é desenhado via SVG no BrandLogo */
+
+/* Classe para IF com Hello Paris Sans local */
+.logo-if-serif {
+  font-family: "Hello Paris Sans", "Prata", serif;
+}
+
+/* Text-only logo: large and highly visible */
+.text-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+.text-logo-if {
+  /* IF com Hello Paris Sans local */
+  font-family: "Hello Paris Sans", "Prata", serif;
+  color: #111;
+  /* Tamanho forte e responsivo */
+  font-size: clamp(64px, 10vw, 160px);
+}
+
+.text-logo-parfum {
+  /* PARFUM em La Luxes local */
+  font-family: "La Luxes", "Prata", serif;
+  color: #111;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-top: 0.12em;
+  /* Tamanho equilibrado e responsivo */
+  font-size: clamp(28px, 5vw, 72px);
+}
+
+/* ===== Estilos específicos para o banner (Hero) ===== */
+.hero-if {
+  font-family: "Hello Paris Sans", "Prata", serif;
+  font-weight: 500;
+  color: #111;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 1.1;
+}
+
+.hero-parfum {
+  font-family: "La Luxes", "Prata", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.20em;
+  color: #111;
+  font-size: clamp(20px, 3.8vw, 44px);
+  margin-left: 0.15em;
+  line-height: 1.1;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  a.active {
+    background-color: black;
+    color: white;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-bounce-custom {
+  animation: bounce 1s ease-in-out;
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, select, textarea {
+  transition: all 0.3s ease;
+}
+
+/* Loading animation */
+.loading-spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #f97316;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hover effects for cards */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button animations */
+.btn-animate {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-animate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-animate:hover::before {
+  left: 100%;
+}
+
+/* Slide out animation for cart items */
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slideOut {
+  animation: slideOut 0.3s ease-in-out forwards;
+}
