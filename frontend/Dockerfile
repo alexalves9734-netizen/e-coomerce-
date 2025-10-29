@@ -6,6 +6,9 @@ COPY . .
 # Define o backend base como /api para proxy via Nginx
 ARG VITE_BACKEND_URL=/api
 ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
+# Chave pública do MercadoPago, passada em build
+ARG VITE_MERCADOPAGO_PUBLIC_KEY
+ENV VITE_MERCADOPAGO_PUBLIC_KEY=$VITE_MERCADOPAGO_PUBLIC_KEY
 RUN npm run build
 
 FROM nginx:alpine

@@ -30,6 +30,7 @@ services:
       context: ./frontend
       args:
         - VITE_BACKEND_URL=/api
+        - VITE_MERCADOPAGO_PUBLIC_KEY=${VITE_MERCADOPAGO_PUBLIC_KEY}
     depends_on:
       - backend
     ports:
